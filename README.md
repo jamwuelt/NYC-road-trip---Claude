@@ -1,4 +1,3 @@
-# NYC-road-trip---Claude
 
 <!DOCTYPE html>
 <html lang="zh-Hant">
