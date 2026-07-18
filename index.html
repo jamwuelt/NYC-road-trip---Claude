@@ -24,7 +24,7 @@
     --us-navy:#2B3A67;
     --us-red:#B22234;
     --ca-red:#D52B1E;
-    --ca-red-dark:#8C1F16;
+    --ca-red-darker:#8C1F16;
     --topbar-border-gradient:linear-gradient(
       90deg,
       var(--us-red) 0 25%,
@@ -32,7 +32,7 @@
       var(--us-navy) 30% 50%,
       var(--ca-red) 50% 75%,
       var(--white) 75% 80%,
-      var(--ca-red-dark) 80% 100%
+      var(--ca-red-darker) 80% 100%
     );
   }
   *{box-sizing:border-box;}
@@ -669,14 +669,10 @@ setStatus('正在建立行程頁籤\u2026', 'loading');
 const dayTabs = document.getElementById('dayTabs');
 const dayCard = document.getElementById('dayCard');
 const tabEls = [];
-const US_SKY_TOP = 'var(--us-navy)';
-const US_SKY_BOTTOM = 'var(--pine)';
-const CA_SKY_TOP = 'var(--rust)';
-const CA_SKY_BOTTOM = 'var(--ca-red-dark)';
 const COUNTRY_BG = { us:'var(--us-navy)', ca:'var(--ca-red)' };
 const SKY_GRADIENT = {
-  us: { top:US_SKY_TOP, bottom:US_SKY_BOTTOM },
-  ca: { top:CA_SKY_TOP, bottom:CA_SKY_BOTTOM }
+  us: { top:'var(--us-navy)', bottom:'var(--pine)' },
+  ca: { top:'var(--rust)', bottom:'var(--ca-red-darker)' }
 };
 const MARKER_BG = { stay:'var(--stay)', food:'var(--food)', see:'var(--see)', drive:'var(--drive)' };
 const MARKER_SIZE = 26;
