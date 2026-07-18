@@ -24,7 +24,6 @@
     --us-navy:#2B3A67;
     --us-red:#B22234;
     --ca-red:#D52B1E;
-    --ca-red-dark:#8C1F16;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
@@ -660,12 +659,16 @@ setStatus('正在建立行程頁籤\u2026', 'loading');
 const dayTabs = document.getElementById('dayTabs');
 const dayCard = document.getElementById('dayCard');
 const tabEls = [];
+const CA_RED_DARK = '#8C1F16';
 const COUNTRY_BG = { us:'var(--us-navy)', ca:'var(--ca-red)' };
 const SKY_GRADIENT = {
   us: { top:'var(--us-navy)', bottom:'var(--pine)' },
-  ca: { top:'var(--rust)', bottom:'var(--ca-red-dark)' }
+  ca: { top:'var(--rust)', bottom:CA_RED_DARK }
 };
 const MARKER_BG = { stay:'var(--stay)', food:'var(--food)', see:'var(--see)', drive:'var(--drive)' };
+const MARKER_SIZE = 26;
+const MARKER_ICON_SIZE = 14;
+const MARKER_BORDER = 2;
 const RUST_COLOR = 'var(--rust)';
 
 function shortTitle(title){
@@ -772,14 +775,14 @@ mapToggleBtn.addEventListener('click', ()=>{
 function iconFor(type){
   const markerBg = MARKER_BG[type] || MARKER_BG.drive;
   const markerHTML = `
-    <div style="width:26px;height:26px;border-radius:50%;background:${markerBg};display:flex;align-items:center;justify-content:center;border:2px solid var(--white);box-shadow:0 1px 2px rgba(0,0,0,.35);">
-      <svg viewBox="0 0 24 24" width="14" height="14">${ICONS[type]}</svg>
+    <div style="width:${MARKER_SIZE}px;height:${MARKER_SIZE}px;border-radius:50%;background:${markerBg};display:flex;align-items:center;justify-content:center;border:${MARKER_BORDER}px solid var(--white);box-shadow:0 1px 2px rgba(0,0,0,.35);">
+      <svg viewBox="0 0 24 24" width="${MARKER_ICON_SIZE}" height="${MARKER_ICON_SIZE}">${ICONS[type]}</svg>
     </div>
   `;
   return L.divIcon({
     html:markerHTML,
-    iconSize:[26,26],
-    iconAnchor:[13,13]
+    iconSize:[MARKER_SIZE,MARKER_SIZE],
+    iconAnchor:[MARKER_SIZE/2,MARKER_SIZE/2]
   });
 }
 
