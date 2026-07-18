@@ -660,15 +660,20 @@ const dayTabs = document.getElementById('dayTabs');
 const dayCard = document.getElementById('dayCard');
 const tabEls = [];
 const CA_RED_DARK = '#8C1F16';
+const US_SKY_TOP = 'var(--us-navy)';
+const US_SKY_BOTTOM = 'var(--pine)';
+const CA_SKY_TOP = 'var(--rust)';
+const CA_SKY_BOTTOM = CA_RED_DARK;
 const COUNTRY_BG = { us:'var(--us-navy)', ca:'var(--ca-red)' };
 const SKY_GRADIENT = {
-  us: { top:'var(--us-navy)', bottom:'var(--pine)' },
-  ca: { top:'var(--rust)', bottom:CA_RED_DARK }
+  us: { top:US_SKY_TOP, bottom:US_SKY_BOTTOM },
+  ca: { top:CA_SKY_TOP, bottom:CA_SKY_BOTTOM }
 };
 const MARKER_BG = { stay:'var(--stay)', food:'var(--food)', see:'var(--see)', drive:'var(--drive)' };
 const MARKER_SIZE = 26;
 const MARKER_ICON_SIZE = 14;
 const MARKER_BORDER = 2;
+const MARKER_SHADOW = '0 1px 2px rgba(0,0,0,.35)';
 const RUST_COLOR = 'var(--rust)';
 
 function shortTitle(title){
@@ -775,7 +780,7 @@ mapToggleBtn.addEventListener('click', ()=>{
 function iconFor(type){
   const markerBg = MARKER_BG[type] || MARKER_BG.drive;
   const markerHTML = `
-    <div style="width:${MARKER_SIZE}px;height:${MARKER_SIZE}px;border-radius:50%;background:${markerBg};display:flex;align-items:center;justify-content:center;border:${MARKER_BORDER}px solid var(--white);box-shadow:0 1px 2px rgba(0,0,0,.35);">
+    <div style="width:${MARKER_SIZE}px;height:${MARKER_SIZE}px;border-radius:50%;background:${markerBg};display:flex;align-items:center;justify-content:center;border:${MARKER_BORDER}px solid var(--white);box-shadow:${MARKER_SHADOW};">
       <svg viewBox="0 0 24 24" width="${MARKER_ICON_SIZE}" height="${MARKER_ICON_SIZE}">${ICONS[type]}</svg>
     </div>
   `;
